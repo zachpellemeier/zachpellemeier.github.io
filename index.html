@@ -5675,6 +5675,389 @@
   }
 </style>
 
+
+<style id="apple-liquid-controls-v16-css">
+/* v16 — Apple-guided Liquid Glass functional layer. Layout and content remain unchanged. */
+body.apple-liquid-v16 {
+  --ag-shell-a: rgba(255,255,255,.58);
+  --ag-shell-b: rgba(244,248,255,.31);
+  --ag-shell-c: rgba(222,235,255,.35);
+  --ag-edge: rgba(255,255,255,.82);
+  --ag-ink: #111827;
+  --ag-blue: rgba(96,165,250,.18);
+  --ag-ease: cubic-bezier(.22,1,.36,1);
+}
+
+/* Keep all historical material layers from participating in the final renderer. */
+body.apple-liquid-v16 .apple-glass-control-v16::before,
+body.apple-liquid-v16 .apple-glass-control-v16::after,
+body.apple-liquid-v16 .apple-glass-control-v16 > .control-liquid-lens,
+body.apple-liquid-v16 .apple-glass-control-v16 > .nav-match-lens,
+body.apple-liquid-v16 .apple-glass-control-v16 > .v12-v5-lens,
+body.apple-liquid-v16 .apple-glass-control-v16 > .liquid-hover-lens {
+  display: none !important;
+  content: none !important;
+}
+
+body.apple-liquid-v16 .apple-glass-control-v16 {
+  --ag-x: 34%;
+  --ag-y: 18%;
+  --ag-shift-x: 0px;
+  --ag-shift-y: 0px;
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden !important;
+  color: var(--ag-ink) !important;
+  background:
+    linear-gradient(115deg, var(--ag-shell-a), var(--ag-shell-b) 48%, var(--ag-shell-c)) !important;
+  border: 1px solid var(--ag-edge) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    inset 0 -1px 0 rgba(148,163,184,.10),
+    0 11px 30px rgba(31,41,55,.095),
+    0 2px 8px rgba(37,99,235,.045) !important;
+  backdrop-filter: blur(24px) saturate(180%) contrast(103%) brightness(1.03) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) contrast(103%) brightness(1.03) !important;
+  transition:
+    transform 430ms var(--ag-ease),
+    box-shadow 260ms ease,
+    border-color 220ms ease,
+    background 260ms ease !important;
+  transform: translate3d(0,0,0) scale(1);
+  will-change: transform;
+}
+
+body.apple-liquid-v16 .apple-glass-lens-v16 {
+  position: absolute;
+  z-index: 0;
+  inset: 2px;
+  border-radius: max(10px, calc(inherit - 2px));
+  pointer-events: none;
+  overflow: hidden;
+  opacity: .42;
+  transform:
+    translate3d(var(--ag-shift-x), var(--ag-shift-y), 0)
+    scale(.985);
+  background:
+    radial-gradient(120px 72px at var(--ag-x) calc(var(--ag-y) - 22px),
+      rgba(255,255,255,.98), rgba(255,255,255,.22) 49%, transparent 75%),
+    radial-gradient(100px 80px at var(--ag-x) var(--ag-y),
+      rgba(147,197,253,.18), rgba(96,165,250,.055) 44%, transparent 74%),
+    linear-gradient(145deg, rgba(255,255,255,.42), rgba(218,233,255,.13));
+  border: 1px solid rgba(255,255,255,.56);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -1px 0 rgba(96,165,250,.07),
+    0 5px 13px rgba(37,99,235,.045);
+  backdrop-filter: blur(12px) saturate(185%) brightness(1.05);
+  -webkit-backdrop-filter: blur(12px) saturate(185%) brightness(1.05);
+  transition:
+    opacity 180ms ease,
+    transform 460ms var(--ag-ease),
+    box-shadow 240ms ease,
+    border-color 220ms ease;
+}
+
+body.apple-liquid-v16 .apple-glass-lens-v16::before {
+  content: '';
+  position: absolute;
+  inset: -42% -28%;
+  background:
+    conic-gradient(from 210deg at var(--ag-x) var(--ag-y),
+      transparent 0 55%, rgba(96,165,250,.16), rgba(255,255,255,.64), transparent 78% 100%);
+  filter: blur(10px);
+  opacity: .55;
+  transform: translateX(-18%);
+  transition: transform 540ms var(--ag-ease), opacity 220ms ease;
+}
+
+body.apple-liquid-v16 .apple-glass-content-v16 {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  white-space: nowrap;
+}
+
+body.apple-liquid-v16 .apple-glass-control-v16.is-apple-glass-active,
+body.apple-liquid-v16 .apple-glass-control-v16:hover,
+body.apple-liquid-v16 .apple-glass-control-v16:focus-visible {
+  transform: translate3d(0,-1px,0) scale(1.018);
+  border-color: rgba(255,255,255,.94) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,1),
+    inset 0 -1px 0 rgba(96,165,250,.13),
+    0 14px 34px rgba(31,41,55,.12),
+    0 5px 16px rgba(37,99,235,.075) !important;
+}
+body.apple-liquid-v16 .apple-glass-control-v16.is-apple-glass-active > .apple-glass-lens-v16,
+body.apple-liquid-v16 .apple-glass-control-v16:hover > .apple-glass-lens-v16,
+body.apple-liquid-v16 .apple-glass-control-v16:focus-visible > .apple-glass-lens-v16 {
+  opacity: .96;
+  transform:
+    translate3d(var(--ag-shift-x), var(--ag-shift-y), 0)
+    scale(1.012);
+  border-color: rgba(255,255,255,.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,1),
+    inset 0 -1px 0 rgba(96,165,250,.12),
+    0 7px 17px rgba(37,99,235,.075);
+}
+body.apple-liquid-v16 .apple-glass-control-v16.is-apple-glass-active > .apple-glass-lens-v16::before,
+body.apple-liquid-v16 .apple-glass-control-v16:hover > .apple-glass-lens-v16::before,
+body.apple-liquid-v16 .apple-glass-control-v16:focus-visible > .apple-glass-lens-v16::before {
+  opacity: .82;
+  transform: translateX(18%);
+}
+body.apple-liquid-v16 .apple-glass-control-v16:active,
+body.apple-liquid-v16 .apple-glass-control-v16.is-apple-glass-pressed {
+  transform: translate3d(0,0,0) scale(.985);
+  transition-duration: 120ms !important;
+}
+
+/* Separate hero controls: same material, separate physical shells. */
+body.apple-liquid-v16 #page-home .hero-actions .apple-glass-control-v16,
+body.apple-liquid-v16 #page-about .about-grid .apple-glass-control-v16 {
+  min-height: 46px;
+  padding: 12px 22px !important;
+  border-radius: 999px !important;
+  font-weight: 650 !important;
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.60), rgba(247,250,255,.34) 48%, rgba(225,237,255,.38)) !important;
+}
+body.apple-liquid-v16 #page-home .hero-actions .btn-primary,
+body.apple-liquid-v16 #page-home .hero-actions .btn-secondary,
+body.apple-liquid-v16 #page-about .about-grid .btn-primary,
+body.apple-liquid-v16 #page-about .about-grid .btn-secondary {
+  color: #111827 !important;
+}
+
+body.apple-liquid-v16 #page-home .social-btn.apple-glass-control-v16 {
+  width: 46px !important;
+  height: 46px !important;
+  flex: 0 0 46px !important;
+  padding: 0 !important;
+  border-radius: 15px !important;
+}
+body.apple-liquid-v16 #page-home .social-btn .apple-glass-content-v16 { padding: 0; }
+body.apple-liquid-v16 #page-home .social-btn svg { position: relative; z-index: 3; }
+
+/* Shared segmented shell for Work filters — same structure as navigation. */
+body.apple-liquid-v16 #page-work .work-filter-shell {
+  --v16-filter-x: 0px;
+  --v16-filter-width: 100px;
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden !important;
+  gap: 0 !important;
+  padding: 6px !important;
+  border-radius: 21px !important;
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.58), rgba(247,250,255,.31) 48%, rgba(225,237,255,.35)) !important;
+  border: 1px solid rgba(255,255,255,.80) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    inset 0 -1px 0 rgba(148,163,184,.10),
+    0 12px 32px rgba(31,41,55,.10),
+    0 2px 8px rgba(37,99,235,.04) !important;
+  backdrop-filter: blur(26px) saturate(180%) contrast(103%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(180%) contrast(103%) !important;
+}
+body.apple-liquid-v16 #page-work .work-filter-shell::before,
+body.apple-liquid-v16 #page-work .work-filter-shell::after { display: none !important; content: none !important; }
+body.apple-liquid-v16 #page-work .work-filter-lens {
+  display: block !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  top: 6px !important;
+  left: 0 !important;
+  height: calc(100% - 12px) !important;
+  width: var(--v13-filter-width, 100px) !important;
+  border-radius: 15px !important;
+  pointer-events: none !important;
+  opacity: .78 !important;
+  transform: translate3d(var(--v13-filter-x, 0px),0,0) scale(var(--v16-filter-scale,1)) !important;
+  background:
+    radial-gradient(94px 48px at var(--v13-filter-highlight, 35%) -8%,
+      rgba(255,255,255,.98), rgba(255,255,255,.24) 52%, transparent 75%),
+    linear-gradient(145deg, rgba(255,255,255,.62), rgba(218,233,255,.24)) !important;
+  border: 1px solid rgba(255,255,255,.80) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,1),
+    inset 0 -1px 0 rgba(96,165,250,.08),
+    0 8px 20px rgba(37,99,235,.08),
+    0 2px 7px rgba(31,41,55,.055) !important;
+  backdrop-filter: blur(15px) saturate(185%) brightness(1.05) !important;
+  -webkit-backdrop-filter: blur(15px) saturate(185%) brightness(1.05) !important;
+  transition:
+    transform 460ms var(--ag-ease),
+    width 460ms var(--ag-ease),
+    box-shadow 220ms ease,
+    opacity 180ms ease !important;
+}
+body.apple-liquid-v16 #page-work .work-filter-lens.is-v13-hovered {
+  --v16-filter-scale: 1.022;
+  opacity: .98 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,1),
+    inset 0 -1px 0 rgba(96,165,250,.12),
+    0 10px 24px rgba(37,99,235,.105),
+    0 2px 8px rgba(31,41,55,.06) !important;
+}
+body.apple-liquid-v16 #page-work .work-filter {
+  position: relative !important;
+  z-index: 2 !important;
+  color: #4b5563 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: color 190ms ease, transform 150ms ease !important;
+}
+body.apple-liquid-v16 #page-work .work-filter:hover,
+body.apple-liquid-v16 #page-work .work-filter:focus-visible,
+body.apple-liquid-v16 #page-work .work-filter.is-active {
+  color: #111827 !important;
+  background: transparent !important;
+}
+body.apple-liquid-v16 #page-work .work-filter:active { transform: scale(.98) !important; }
+body.apple-liquid-v16 #page-work .work-filter::before,
+body.apple-liquid-v16 #page-work .work-filter::after { display: none !important; content: none !important; }
+
+/* Project and utility actions use the same regular glass, without changing card layout. */
+body.apple-liquid-v16 .see-all.apple-glass-control-v16,
+body.apple-liquid-v16 .project-arrow.apple-glass-control-v16,
+body.apple-liquid-v16 .back-btn.apple-glass-control-v16,
+body.apple-liquid-v16 .sql-expand-btn.apple-glass-control-v16,
+body.apple-liquid-v16 .refs-toggle.apple-glass-control-v16 {
+  border-radius: 999px !important;
+}
+body.apple-liquid-v16 .project-arrow.apple-glass-control-v16 {
+  align-self: flex-start;
+  min-height: 40px;
+  padding: 9px 14px !important;
+  color: #111827 !important;
+}
+body.apple-liquid-v16 .project-card:hover .project-arrow.apple-glass-control-v16 {
+  transform: translate3d(2px,-1px,0) scale(1.018) !important;
+}
+
+/* Footer CTA remains white and legible, but responds as Regular glass. */
+body.apple-liquid-v16 .home-footer-copy .calendly-trigger.apple-glass-control-v16 {
+  color: #111111 !important;
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.94), rgba(250,252,255,.82) 50%, rgba(231,240,255,.82)) !important;
+  border-color: rgba(255,255,255,.96) !important;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    inset 0 -1px 0 rgba(148,163,184,.12),
+    0 12px 30px rgba(0,0,0,.18),
+    0 2px 8px rgba(96,165,250,.08) !important;
+}
+
+/* Back-to-top stays fixed and isolated from the generic layout. */
+body.apple-liquid-v16 .back-to-top.apple-glass-control-v16 {
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  width: 49px !important;
+  height: 49px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  z-index: 500 !important;
+}
+
+/* Trusted Voices remains content at rest; interaction temporarily lifts the surface. */
+body.apple-liquid-v16 .ref-card {
+  --ref-x-v16: 50%;
+  --ref-y-v16: 50%;
+  isolation: isolate;
+  overflow: hidden;
+}
+body.apple-liquid-v16 .apple-reflection-v16 {
+  position: absolute;
+  z-index: 0;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(250px 175px at var(--ref-x-v16) var(--ref-y-v16),
+      rgba(255,255,255,.48), rgba(219,234,254,.12) 40%, transparent 73%),
+    radial-gradient(180px 140px at var(--ref-x-v16) var(--ref-y-v16),
+      rgba(96,165,250,.15), transparent 68%);
+  border: 1px solid rgba(255,255,255,.38);
+  backdrop-filter: blur(5px) saturate(125%);
+  -webkit-backdrop-filter: blur(5px) saturate(125%);
+  transition: opacity 210ms ease, transform 450ms var(--ag-ease);
+  transform: scale(.992);
+}
+body.apple-liquid-v16 .ref-card:hover .apple-reflection-v16,
+body.apple-liquid-v16 .ref-card:focus-within .apple-reflection-v16 {
+  opacity: .70;
+  transform: scale(1);
+}
+body.apple-liquid-v16 .ref-card > *:not(.apple-reflection-v16) { position: relative; z-index: 1; }
+body.apple-liquid-v16 .ref-card:hover {
+  border-color: rgba(255,255,255,.72) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.86),
+    0 18px 40px rgba(31,41,55,.09),
+    0 4px 14px rgba(37,99,235,.055) !important;
+}
+
+@media (max-width: 640px) {
+  body.apple-liquid-v16 #page-work .work-filter-shell {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    padding: 5px !important;
+  }
+  body.apple-liquid-v16 #page-work .work-filter-lens { display: none !important; }
+  body.apple-liquid-v16 #page-work .work-filter {
+    min-height: 43px;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.38) !important;
+    border: 1px solid rgba(255,255,255,.56) !important;
+  }
+  body.apple-liquid-v16 #page-work .work-filter.is-active {
+    background: rgba(255,255,255,.72) !important;
+    border-color: rgba(255,255,255,.88) !important;
+  }
+  body.apple-liquid-v16 .back-to-top.apple-glass-control-v16 {
+    right: 14px !important;
+    bottom: 14px !important;
+    width: 47px !important;
+    height: 47px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.apple-liquid-v16 .apple-glass-control-v16,
+  body.apple-liquid-v16 .apple-glass-lens-v16,
+  body.apple-liquid-v16 #page-work .work-filter-lens,
+  body.apple-liquid-v16 .apple-reflection-v16 {
+    transition-duration: 1ms !important;
+    animation: none !important;
+  }
+  body.apple-liquid-v16 .apple-glass-control-v16:hover,
+  body.apple-liquid-v16 .apple-glass-control-v16:focus-visible { transform: none !important; }
+}
+
+@media (prefers-contrast: more) {
+  body.apple-liquid-v16 .apple-glass-control-v16,
+  body.apple-liquid-v16 #page-work .work-filter-shell {
+    background: rgba(255,255,255,.88) !important;
+    border-color: rgba(17,24,39,.26) !important;
+  }
+  body.apple-liquid-v16 .apple-glass-lens-v16 { opacity: .20; }
+}
+</style>
+
 </head>
 <body class="home-active">
 <nav>
@@ -10341,6 +10724,163 @@ UseableStockCode <span class="sql-k">AS</span> (
       requestAnimationFrame(() => requestAnimationFrame(run));
     };
     wrapped.v15Wrapped = true;
+    window.showPage = wrapped;
+  }
+})();
+</script>
+
+
+<script id="apple-liquid-controls-v16-js">
+(function appleLiquidControlsV16(){
+  const controlSelector = [
+    '#page-home .hero-actions .btn-primary',
+    '#page-home .hero-actions .btn-secondary',
+    '#page-home .social-btn[aria-label="LinkedIn"]',
+    '#page-home .social-btn[aria-label="Email"]',
+    '#page-about .about-grid .btn-primary',
+    '#page-about .about-grid .btn-secondary',
+    '.see-all',
+    '.project-arrow',
+    '.refs-toggle',
+    '.back-to-top',
+    '.back-btn',
+    '.sql-expand-btn',
+    '.home-footer-copy .calendly-trigger'
+  ].join(',');
+
+  function unwrapDirect(wrapper, element) {
+    if (!wrapper || wrapper.parentElement !== element) return;
+    while (wrapper.firstChild) element.insertBefore(wrapper.firstChild, wrapper);
+    wrapper.remove();
+  }
+
+  function cleanLegacyLayers(element) {
+    element.dataset.v9LiquidReady = 'true';
+    element.dataset.navMatchedV10 = 'true';
+    element.dataset.v12GlassListeners = 'true';
+    element.classList.remove(
+      'liquid-control','nav-glass-control','is-primary-glass','nav-match-control','nav-match-primary',
+      'v12-v5-glass','is-v12-energized','is-energized','nav-match-primary'
+    );
+    element.querySelectorAll(':scope > .control-liquid-lens, :scope > .nav-match-lens, :scope > .v12-v5-lens, :scope > .liquid-hover-lens')
+      .forEach(node => node.remove());
+    Array.from(element.querySelectorAll(':scope > .liquid-control-content, :scope > .nav-match-content, :scope > .v12-v5-content'))
+      .forEach(wrapper => unwrapDirect(wrapper, element));
+  }
+
+  function wrapControl(element) {
+    if (!element) return;
+    cleanLegacyLayers(element);
+    element.classList.add('apple-glass-control-v16');
+
+    let lens = element.querySelector(':scope > .apple-glass-lens-v16');
+    let content = element.querySelector(':scope > .apple-glass-content-v16');
+    if (!content) {
+      content = document.createElement('span');
+      content.className = 'apple-glass-content-v16';
+      while (element.firstChild) content.appendChild(element.firstChild);
+      lens = document.createElement('span');
+      lens.className = 'apple-glass-lens-v16';
+      lens.setAttribute('aria-hidden','true');
+      element.append(lens, content);
+    }
+
+    if (element.dataset.appleGlassV16Bound === 'true') return;
+    element.dataset.appleGlassV16Bound = 'true';
+
+    const move = (event) => {
+      const rect = element.getBoundingClientRect();
+      const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / Math.max(1, rect.width)));
+      const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / Math.max(1, rect.height)));
+      element.style.setProperty('--ag-x', `${Math.round(x * 100)}%`);
+      element.style.setProperty('--ag-y', `${Math.round(y * 100)}%`);
+      element.style.setProperty('--ag-shift-x', `${((x - .5) * 4.2).toFixed(2)}px`);
+      element.style.setProperty('--ag-shift-y', `${((y - .5) * 2.6).toFixed(2)}px`);
+    };
+    const activate = () => element.classList.add('is-apple-glass-active');
+    const settle = () => {
+      element.classList.remove('is-apple-glass-active','is-apple-glass-pressed');
+      element.style.setProperty('--ag-x','34%');
+      element.style.setProperty('--ag-y','18%');
+      element.style.setProperty('--ag-shift-x','0px');
+      element.style.setProperty('--ag-shift-y','0px');
+    };
+    element.addEventListener('pointerenter', activate, {passive:true});
+    element.addEventListener('pointermove', move, {passive:true});
+    element.addEventListener('pointerleave', settle, {passive:true});
+    element.addEventListener('pointerdown', () => element.classList.add('is-apple-glass-pressed'), {passive:true});
+    element.addEventListener('pointerup', () => element.classList.remove('is-apple-glass-pressed'), {passive:true});
+    element.addEventListener('pointercancel', settle, {passive:true});
+    element.addEventListener('focus', activate);
+    element.addEventListener('blur', settle);
+  }
+
+  function enhanceReferences() {
+    document.querySelectorAll('.ref-card').forEach(card => {
+      card.querySelectorAll(':scope > .ref-liquid-lens').forEach(node => node.remove());
+      let reflection = card.querySelector(':scope > .apple-reflection-v16');
+      if (!reflection) {
+        reflection = document.createElement('span');
+        reflection.className = 'apple-reflection-v16';
+        reflection.setAttribute('aria-hidden','true');
+        card.prepend(reflection);
+      }
+      if (card.dataset.appleRefV16Bound === 'true') return;
+      card.dataset.appleRefV16Bound = 'true';
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--ref-x-v16', `${event.clientX - rect.left}px`);
+        card.style.setProperty('--ref-y-v16', `${event.clientY - rect.top}px`);
+      }, {passive:true});
+    });
+  }
+
+  function enhanceFilters() {
+    const shell = document.querySelector('#page-work .work-filter-shell');
+    if (!shell) return;
+    shell.querySelectorAll(':scope > .control-liquid-lens, :scope > .nav-match-lens').forEach(node => node.remove());
+    const lens = shell.querySelector(':scope > .work-filter-lens');
+    if (!lens) return;
+    if (shell.dataset.appleFilterV16Bound === 'true') return;
+    shell.dataset.appleFilterV16Bound = 'true';
+    shell.addEventListener('pointermove', event => {
+      const rect = shell.getBoundingClientRect();
+      const pct = Math.max(8, Math.min(92, ((event.clientX - rect.left) / Math.max(1,rect.width)) * 100));
+      shell.style.setProperty('--v16-shell-highlight', `${pct}%`);
+    }, {passive:true});
+  }
+
+  function run() {
+    document.body.classList.add('apple-liquid-v16');
+    document.querySelectorAll(controlSelector).forEach(wrapControl);
+    enhanceReferences();
+    enhanceFilters();
+  }
+
+  function schedule() {
+    run();
+    setTimeout(run, 60);
+    setTimeout(run, 280);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', schedule, {once:true});
+  else schedule();
+  window.addEventListener('load', () => setTimeout(run, 360), {once:true});
+
+  document.addEventListener('pointerover', event => {
+    const control = event.target.closest && event.target.closest(controlSelector);
+    if (control) wrapControl(control);
+    const card = event.target.closest && event.target.closest('.ref-card');
+    if (card) enhanceReferences();
+  }, {passive:true});
+
+  const oldShowPage = window.showPage;
+  if (typeof oldShowPage === 'function' && !oldShowPage.appleLiquidV16Wrapped) {
+    const wrapped = function(name) {
+      oldShowPage(name);
+      requestAnimationFrame(() => requestAnimationFrame(schedule));
+    };
+    wrapped.appleLiquidV16Wrapped = true;
     window.showPage = wrapped;
   }
 })();
